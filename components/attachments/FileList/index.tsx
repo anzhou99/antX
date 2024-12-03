@@ -8,6 +8,7 @@ import SilentUploader from '../SilentUploader';
 import { AttachmentContext } from '../context';
 import FileListCard from './FileListCard';
 
+const TOLERANCE = 1;
 export interface FileListProps {
   prefixCls: string;
   items: Attachment[];
@@ -60,11 +61,15 @@ export default function FileList(props: FileListProps) {
     if (!containerEle) {
       return;
     }
+    console.log('containerEle.scrollLeft: ', containerEle.scrollLeft);
 
     if (overflow === 'scrollX') {
-      setPingStart(containerEle.scrollLeft !== 0);
+      setPingStart(!(Math.abs(containerEle.scrollLeft) < TOLERANCE));
       setPingEnd(
-        containerEle.scrollWidth - containerEle.clientWidth !== Math.abs(containerEle.scrollLeft),
+        !(
+          containerEle.scrollWidth - containerEle.clientWidth - Math.abs(containerEle.scrollLeft) <
+          TOLERANCE
+        ),
       );
     } else if (overflow === 'scrollY') {
       setPingStart(containerEle.scrollTop !== 0);
