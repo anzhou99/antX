@@ -40,6 +40,11 @@ export default defineConfig({
   define: {
     antdReproduceVersion: version,
   },
+  externals: {
+    // optimize build of GPT-Vis
+    'mapbox-gl': 'mapboxgl',
+    'maplibre-gl': 'maplibregl',
+  },
   alias: {
     '@ant-design/x/lib': path.join(__dirname, 'components'),
     '@ant-design/x/es': path.join(__dirname, 'components'),
@@ -179,5 +184,6 @@ export default defineConfig({
       document.documentElement.className += isZhCN(pathname) ? 'zh-cn' : 'en-us';
     })();
     `,
+    'https://gw.alipayobjects.com/os/lib/lottie-web/5.12.2/build/player/lottie_svg.min.js',
   ],
 });
