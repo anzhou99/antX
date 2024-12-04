@@ -64,12 +64,10 @@ export default function FileList(props: FileListProps) {
     }
 
     if (overflow === 'scrollX') {
-      setPingStart(!(Math.abs(containerEle.scrollLeft) < TOLERANCE));
+      setPingStart(Math.abs(containerEle.scrollLeft) >= TOLERANCE);
       setPingEnd(
-        !(
-          containerEle.scrollWidth - containerEle.clientWidth - Math.abs(containerEle.scrollLeft) <
-          TOLERANCE
-        ),
+        containerEle.scrollWidth - containerEle.clientWidth - Math.abs(containerEle.scrollLeft) >=
+          TOLERANCE,
       );
     } else if (overflow === 'scrollY') {
       setPingStart(containerEle.scrollTop !== 0);
