@@ -87,7 +87,8 @@ const BubbleList: React.ForwardRefRenderFunction<BubbleListRef, BubbleListProps>
   const onInternalScroll: React.UIEventHandler<HTMLDivElement> = (e) => {
     const target = e.target as HTMLElement;
 
-    setScrollReachEnd(target.scrollTop + target.clientHeight === target.scrollHeight);
+    //  Allow 1px tolerance
+    setScrollReachEnd(Math.abs(target.scrollHeight - target.scrollTop - target.clientHeight) <= 1);
   };
 
   const { manualScrollToBottom } = useAutoScrollToBottom({

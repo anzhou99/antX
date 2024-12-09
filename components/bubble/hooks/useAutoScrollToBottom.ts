@@ -54,10 +54,6 @@ const useAutoScroll = ({ container, autoScroll }: AutoScrollOptions) => {
       // 判断是否滚动到底部（允许 1px 的误差）
       const isScrolledToBottom = Math.abs(scrollHeight - scrollTop - clientHeight) <= 1;
 
-      if (shouldAutoScrollRef.current !== isScrolledToBottom) {
-        console.log('User scroll:', isScrolledToBottom ? 'at bottom' : 'not at bottom');
-      }
-
       shouldAutoScrollRef.current = isScrolledToBottom;
     };
 
