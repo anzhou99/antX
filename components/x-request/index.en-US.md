@@ -18,7 +18,9 @@ coverDark: https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*lQydTrtLz9YAAA
 
 ## Examples
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/custom-transformer.tsx">Custom Transformer</code>
 
 ## API
 
@@ -28,7 +30,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*lQydTrtLz9YAAA
 | --- | --- | --- | --- | --- |
 | baseURL | Base URL for the API request | string | - | - |
 | model | Model name, e.g., 'gpt-3.5-turbo' | string | - | - |
-| dangerouslyApiKey | Enabling this option can be dangerous, exposing secret API credentials | string | - | - |
+| dangerouslyApiKey | **🔥 `dangerouslyApiKey` presents security risks. Detailed documentation on this can be found in [Explanation](/docs/react/dangerously-api-key)** | string | - | - |
 | fetch | Optional custom fetch function for making requests | fetch | - | - |
 
 ### XRequestFunction
